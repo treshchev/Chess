@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<script type="text/javascript">
+
+	$(document).ready(function(){
+		
+			var xod=1;
+
+for(let str=1;str<=8; str++){
+for(let kol=1;kol<=8; kol++){
+	
+$("#butt").append("<button id='"+str+"-"+kol+"'  class='kl' style='width:50px; height:50px; font-Size:20px;'> "+str+"-"+kol+"</button>");	
+
+		}
+		$("#butt").append("<br>");
+        }
+
+
+        $(".kl").click(function(){
+        	for(let strstr=1;strstr<=8; strstr++){
+            for(let kjl=1;kjl<=8; kjl++){
+
+            	$("#"+strstr+"-"+kjl).removeAttr("disabled");
+
+            	if($("#"+strstr+"-"+kjl).attr("alt")=="1"){
+            		$("#"+strstr+"-"+kjl).attr("disabled" , "false");
+
+            	}
+        }
+    }
+
+    var knid =$(this).attr("id");
+    var id=knid.split("-");
+    var s=parseInt(id[0]);
+    var k=parseInt(id[1]);
+
+    for(let i=1;i<=8; i++){
+    for(let m=1;m<=8; m++){
+
+    	if((k-1)==m &&(s-2)==i || (k-1)==m &&(s+2)==i || (k+1)==m &&(s-2)==i || (k+1)==m &&(s+2)==i || (k+2)==m && (s+1)==i  || (k-2)==m && (s-1)==i || (k-2)==m && (s+1)==i || (k+2)==m && (s-1)==i  ) 
+    	{
+
+
+    	}
+
+    	else{
+    		$("#"+i+"-"+m).attr("disabled" , "false");
+
+    	}
+    }
+}
+
+
+
+
+
+
+$(this).text(xod);
+$(this).attr("disabled" , "false");
+$(this).css("color" , "red");
+$(this).attr("alt" , "1");
+xod++;
+
+/*    
+*/
+
+
+});
+
+});
+
+	</script>
+</head>
+<body>
+
+
+
+
+	<center>
+		<div id="butt"></div>
+
+
+
+	</center>
+
+</body>
+</html>
